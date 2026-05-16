@@ -106,9 +106,9 @@ function Nav({ active }) {
 
   return (
     <nav className="nav-global" style={{ background: scrolled ? "rgba(0,0,0,0.9)" : "rgba(0,0,0,0.7)" }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+      <div className="nav-container" style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span className="font-display" style={{ color: "white", fontSize: 17, letterSpacing: "-0.02em" }}>Siva. I</span>
-        <div style={{ display: "flex", gap: 32 }}>
+        <div style={{ display: "flex", gap: "clamp(16px, 3vw, 32px)", flexWrap: "wrap", justifyContent: "center" }}>
           {NAV_LINKS.map(link => (
             <a key={link} href={`#${link.toLowerCase()}`}
               style={{ color: "rgba(255,255,255,0.8)", fontSize: 12, textDecoration: "none", letterSpacing: "-0.01em" }}
@@ -277,7 +277,7 @@ function WorkSection() {
           </div>
         </RevealSection>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(480px, 1fr))", gap: 20 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 480px), 1fr))", gap: 20 }}>
           {PROJECTS.map((project, i) => (
             <ProjectCard key={project.id} project={project} index={i} />
           ))}
@@ -291,7 +291,7 @@ function AboutSection() {
   return (
     <section id="about" className="tile-darkest section-pad">
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 450px), 1fr))", gap: "clamp(40px, 8vw, 80px)", alignItems: "center" }}>
           <RevealSection>
             <div className="font-mono accent" style={{ fontSize: 12, letterSpacing: "0.12em", marginBottom: 20 }}>ABOUT</div>
             <h2 className="font-display" style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 400, color: "white", letterSpacing: "-0.03em", marginBottom: 28, lineHeight: 1.1 }}>
@@ -307,7 +307,7 @@ function AboutSection() {
             <p style={{ fontSize: 17, color: "rgba(255,255,255,0.55)", lineHeight: 1.7, marginBottom: 40 }}>
               I hold a Master's degree in Game Development and Design from Kingston University London, where I graduated with a Distinction (A+). My dissertation was also selected for the Innovate UK national innovation programme.
             </p>
-            <div style={{ display: "flex", gap: 12 }}>
+            <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
               <a href="mailto:shivashanmukh2@gmail.com" className="btn-primary">
                 <Mail size={15} /> Get in touch
               </a>
@@ -325,7 +325,7 @@ function AboutSection() {
                 style={{ width: "100%", height: "auto", display: "block", filter: "grayscale(20%)" }}
               />
             </div>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 180px), 1fr))", gap: 16 }}>
               {[
                 { role: "Lead Developer", company: "MapPal Ltd", year: "2025" },
                 { role: "Frontend Developer", company: "Cambridge University Hospitals", year: "2025" },
@@ -442,7 +442,7 @@ function ContactSection() {
         </RevealSection>
 
         <RevealSection delay={0.1}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 40 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))", gap: 20, marginBottom: 40 }}>
             {[
               { icon: <Mail size={20} />, label: "Email", value: "shivashanmukh2@gmail.com", href: "mailto:shivashanmukh2@gmail.com" },
               { icon: <Phone size={20} />, label: "Phone", value: "+44 7554 469091", href: "tel:+447554469091" },
@@ -459,18 +459,18 @@ function ContactSection() {
                 gap: 16,
               }}>
                 <div style={{ color: "#10B981", flexShrink: 0 }}>{icon}</div>
-                <div>
+                <div style={{ minWidth: 0 }}>
                   <div style={{ fontSize: 12, color: "rgba(255,255,255,0.35)", marginBottom: 4 }}>{label}</div>
                   {href ? (
                     <a href={href} target={href.startsWith("http") ? "_blank" : undefined}
                       rel="noreferrer"
-                      style={{ fontSize: 15, color: "white", textDecoration: "none" }}
+                      style={{ fontSize: 15, color: "white", textDecoration: "none", display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
                       onMouseEnter={e => e.target.style.color = "#10B981"}
                       onMouseLeave={e => e.target.style.color = "white"}>
                       {value}
                     </a>
                   ) : (
-                    <span style={{ fontSize: 15, color: "white" }}>{value}</span>
+                    <span style={{ fontSize: 15, color: "white", display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{value}</span>
                   )}
                 </div>
               </div>
@@ -491,7 +491,7 @@ function ContactSection() {
       </div>
 
       <footer style={{ textAlign: "center", marginTop: 80, paddingTop: 40, borderTop: "1px solid rgba(255,255,255,0.08)" }}>
-        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)" }}>
+        <p style={{ fontSize: 12, color: "rgba(255,255,255,0.25)", padding: "0 20px" }}>
           © 2025 Siva Iyallasomayajula. Designed & Built with React and Tailwind CSS.
         </p>
       </footer>
