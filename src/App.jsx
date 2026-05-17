@@ -86,6 +86,7 @@ const PROJECTS = [
     live: null,
     github: null,
     miro: "https://miro.com/app/board/uXjVL9BTCNI=/?share_link_id=141665411617",
+    demo: "https://youtu.be/mOkCVJZUkcssi=jMf1b0b2J2Ejusu_",
     color: "#ffffff",
     bg: "#0f1a14",
     metric: "A+",
@@ -268,7 +269,14 @@ function ProjectCard({ project, index }) {
                 <ExternalLink size={13} /> UX Research
               </a>
             )}
-            {!project.live && !project.github && !project.figma && !project.miro && (
+            {project.demo && (
+              <a href={project.demo} target="_blank" rel="noreferrer"
+                className={isDark ? "btn-ghost-dark" : "btn-ghost"}
+                style={{ fontSize: 14, padding: "8px 18px" }}>
+                <ExternalLink size={13} /> Demo
+              </a>
+            )}
+            {!project.live && !project.github && !project.figma && !project.miro && !project.demo && (
               <span style={{ fontSize: 13, color: isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.3)", padding: "8px 0" }}>
                 Private deployment
               </span>
