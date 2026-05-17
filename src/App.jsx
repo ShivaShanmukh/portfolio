@@ -82,7 +82,7 @@ const PROJECTS = [
     name: "ANT: The Backyard Odyssey",
     tagline: "A+ Distinction. Selected for Innovate UK.",
     description: "A spatial computing VR experience built as my Masters dissertation. It features real-time rendering, world-building mechanics, and immersive interaction design. The project was awarded a Distinction and selected for Innovate UK's national innovation programme.",
-    tags: ["VR", "Spatial Computing", "UE5", "Innovate UK"],
+    tags: ["VR", "Spatial Computing", "Unity", "Innovate UK"],
     live: null,
     github: null,
     miro: "https://miro.com/app/board/uXjVL9BTCNI=/?share_link_id=141665411617",
