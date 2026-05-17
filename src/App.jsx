@@ -42,6 +42,7 @@ const PROJECTS = [
     tags: ["Next.js", "React", "NHS", "WCAG"],
     live: null,
     github: null,
+    figma: "https://www.figma.com/design/4UDpW7QS4HpAvBqSoD4F4S/VOH---website?node-id=0-1&m=dev",
     color: "#1D4ED8",
     bg: "#EFF6FF",
     metric: "100–200",
@@ -84,6 +85,7 @@ const PROJECTS = [
     tags: ["VR", "Spatial Computing", "UE5", "Innovate UK"],
     live: null,
     github: null,
+    miro: "https://miro.com/app/board/uXjVL9BTCNI=/?share_link_id=141665411617",
     color: "#ffffff",
     bg: "#0f1a14",
     metric: "A+",
@@ -252,7 +254,21 @@ function ProjectCard({ project, index }) {
                 <Github size={13} /> Code
               </a>
             )}
-            {!project.live && !project.github && (
+            {project.figma && (
+              <a href={project.figma} target="_blank" rel="noreferrer"
+                className={isDark ? "btn-ghost-dark" : "btn-ghost"}
+                style={{ fontSize: 14, padding: "8px 18px" }}>
+                <ExternalLink size={13} /> Figma Design
+              </a>
+            )}
+            {project.miro && (
+              <a href={project.miro} target="_blank" rel="noreferrer"
+                className={isDark ? "btn-ghost-dark" : "btn-ghost"}
+                style={{ fontSize: 14, padding: "8px 18px" }}>
+                <ExternalLink size={13} /> UX Research
+              </a>
+            )}
+            {!project.live && !project.github && !project.figma && !project.miro && (
               <span style={{ fontSize: 13, color: isDark ? "rgba(255,255,255,0.3)" : "rgba(0,0,0,0.3)", padding: "8px 0" }}>
                 Private deployment
               </span>
