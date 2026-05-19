@@ -7,6 +7,34 @@ import shivaImg from "./assets/shiva.png"
 
 const PROJECTS = [
   {
+    id: "prototype-pilot",
+    name: "Prototype Pilot",
+    tagline: "An AI Co-founder for your next big idea.",
+    description: "An AI-powered 'Co-founder' agent designed to transform raw product ideas into structured, actionable technical briefs. It guides entrepreneurs through a rigorous four-phase discovery process—Clarify, Scope, Risk, and Brief—to ensure a solid foundation before any code is written.",
+    tags: ["Python", "FastAPI", "Next.js", "Claude API", "MCP"],
+    live: null,
+    github: "https://github.com/ShivaShanmukh/Claudia-Co-founder",
+    color: "#ffffff",
+    bg: "#1e1b4b",
+    metric: "4-Phase",
+    metricLabel: "discovery loop",
+    dark: true,
+  },
+  {
+    id: "unity-mcp",
+    name: "Unity MCP Master",
+    tagline: "Bridge the gap between Unity and AI.",
+    description: "A powerful bridge that connects the Unity Editor to AI assistants using the Model Context Protocol. It empowers developers to build games and manage the Unity environment entirely through natural language, featuring autonomous scene management and integrated debugging.",
+    tags: ["Unity", "C#", "Python", "MCP", "AI"],
+    live: null,
+    github: "https://github.com/ShivaShanmukh/Unity-MCP-Master",
+    color: "#ffffff",
+    bg: "#020617",
+    metric: "Autonomous",
+    metricLabel: "agentic loop",
+    dark: true,
+  },
+  {
     id: "verdant",
     name: "Verdant",
     tagline: "AI that reads your food for you.",
@@ -183,7 +211,7 @@ function HeroSection() {
             { n: "7+", label: "years experience" },
             { n: "30+", label: "active SaaS users" },
             { n: "100–200", label: "NHS children daily" },
-            { n: "15+", label: "AI deployments" },
+            { n: "17+", label: "AI deployments" },
           ].map(({ n, label }) => (
             <div key={label} style={{ textAlign: "center" }}>
               <div className="font-display accent" style={{ fontSize: 32, fontWeight: 400 }}>{n}</div>
@@ -381,7 +409,7 @@ function SkillsSection() {
   const skillGroups = [
     {
       label: "LLM & Agents",
-      skills: ["Anthropic Claude API", "OpenAI API", "Prompt engineering", "Agent harnesses", "Structured outputs", "Evaluation systems"],
+      skills: ["Anthropic Claude API", "OpenAI API", "Model Context Protocol (MCP)", "Prompt engineering", "Agent harnesses", "Structured outputs", "Evaluation systems"],
     },
     {
       label: "Frontend",
