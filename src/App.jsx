@@ -7,6 +7,20 @@ import shivaImg from "./assets/shiva.png"
 
 const PROJECTS = [
   {
+    id: "mark-42",
+    name: "Mark-42",
+    tagline: "Talk to your code. Get answers, not guesses.",
+    description: "A production-ready RAG agent that turns any public GitHub repository into a searchable knowledge base. It uses a two-stage retrieval pipeline with MiniLM embeddings and cross-encoder reranking to provide grounded, cited answers from source code via Claude Sonnet.",
+    tags: ["Python", "FastAPI", "Next.js", "ChromaDB", "Claude API", "RAG"],
+    live: "https://mark-42-frontend-production.up.railway.app",
+    github: "https://github.com/ShivaShanmukh/Mark-42-",
+    color: "#ffffff",
+    bg: "#0f172a",
+    metric: "2-Stage",
+    metricLabel: "retrieval pipeline",
+    dark: true,
+  },
+  {
     id: "prototype-pilot",
     name: "Prototype Pilot",
     tagline: "An AI Co-founder for your next big idea.",
@@ -68,7 +82,7 @@ const PROJECTS = [
     tagline: "Built for the NHS. Used by children every day.",
     description: "A motion-rich, accessible wellbeing platform for Cambridge University Hospitals. As the sole developer, I handled the full component architecture, WCAG compliance, and interaction design, deploying the project in 6 weeks.",
     tags: ["Next.js", "React", "NHS", "WCAG"],
-    live: null,
+    live: "https://www.voh.org.uk/BBA/",
     github: null,
     figma: "https://www.figma.com/design/4UDpW7QS4HpAvBqSoD4F4S/VOH---website?node-id=0-1&m=dev",
     color: "#1D4ED8",
@@ -273,7 +287,7 @@ function ProjectCard({ project, index }) {
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
             {project.live && (
               <a href={project.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ fontSize: 14, padding: "8px 18px" }}>
-                Live site <ExternalLink size={13} />
+                Live website <ExternalLink size={13} />
               </a>
             )}
             {project.github && (
