@@ -111,7 +111,7 @@ const PROJECTS = [
     tagline: "Plain English in. Engineering data out.",
     description: "A Claude Haiku agent harness built for Midsummer Energy where users describe their home in plain English. The LLM extracts structured inputs, validates them, and triggers a pipeline pulling 8,760 hourly data points from the EU PVGIS API.",
     tags: ["Python", "Claude Haiku", "Node.js", "Chart.js"],
-    live: null,
+    live: "https://heat-pump-calculator-production.up.railway.app/",
     github: "https://github.com/ShivaShanmukh/Heat-pump-calculator",
     color: "#92400E",
     bg: "#FEF3C7",
