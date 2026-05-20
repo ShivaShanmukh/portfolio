@@ -26,7 +26,7 @@ const PROJECTS = [
     tagline: "An AI Co-founder for your next big idea.",
     description: "An AI-powered 'Co-founder' agent designed to transform raw product ideas into structured, actionable technical briefs. It guides entrepreneurs through a rigorous four-phase discovery process—Clarify, Scope, Risk, and Brief—to ensure a solid foundation before any code is written.",
     tags: ["Python", "FastAPI", "Next.js", "Claude API", "MCP"],
-    live: null,
+    live: "https://frontend-production-a0d53.up.railway.app/",
     github: "https://github.com/ShivaShanmukh/Claudia-Co-founder",
     color: "#ffffff",
     bg: "#1e1b4b",
