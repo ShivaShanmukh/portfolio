@@ -12,7 +12,7 @@ const PROJECTS = [
     tagline: "Talk to your code. Get answers, not guesses.",
     description: "A production-ready RAG agent that turns any public GitHub repository into a searchable knowledge base. It uses a two-stage retrieval pipeline with MiniLM embeddings and cross-encoder reranking to provide grounded, cited answers from source code via Claude Sonnet.",
     tags: ["Python", "FastAPI", "Next.js", "ChromaDB", "Claude API", "RAG"],
-    live: "https://mark-42-frontend-production.up.railway.app",
+    live: "https://web-production-fdfac.up.railway.app/",
     github: "https://github.com/ShivaShanmukh/Mark-42-",
     color: "#ffffff",
     bg: "#0f172a",
