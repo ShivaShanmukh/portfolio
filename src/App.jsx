@@ -4,7 +4,8 @@ import { ExternalLink, Github, ArrowRight, Mail, MapPin, Phone, Gamepad2, Play, 
 import shivaImg from "./assets/shiva.png"
 import wormholeArt from "./assets/bg-wormhole.jpg"
 import campingArt from "./assets/bg-camping.png"
-import summitArt from "./assets/bg-summit.png"
+import journeyArt from "./assets/bg-journey.png"
+import stargazeArt from "./assets/bg-stargaze.png"
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -356,35 +357,62 @@ function ParticleField() {
   return <canvas ref={ref} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", pointerEvents: "none" }} />
 }
 
-// Full-bleed illustration backdrop with mouse parallax + depth layers
-// (art drifts opposite the cursor, masked into the void, tinted toward the palette)
-function IllustrationBackdrop({ src, height = "100%", opacity = 0.38, focus = "center", strength = 20 }) {
+// Full-bleed illustration backdrop with spatial 3D depth:
+// the art plane tilts in perspective toward the cursor, drifts opposite it,
+// and slides on scroll like a layer sitting far behind the page.
+function IllustrationBackdrop({ src, height = "100%", opacity = 0.38, focus = "center", strength = 20, tilt = 2.5 }) {
+  const wrapRef = useRef(null)
   const x = useSpring(0, { stiffness: 50, damping: 20 })
   const y = useSpring(0, { stiffness: 50, damping: 20 })
+  const rx = useSpring(0, { stiffness: 60, damping: 22 })
+  const ry = useSpring(0, { stiffness: 60, damping: 22 })
+  const scrollY = useSpring(0, { stiffness: 45, damping: 24 })
 
   useEffect(() => {
     if (prefersReducedMotion() || window.matchMedia("(pointer: coarse)").matches) return
     const onMove = e => {
-      x.set(-(e.clientX / window.innerWidth - 0.5) * strength)
-      y.set(-(e.clientY / window.innerHeight - 0.5) * strength)
+      const nx = e.clientX / window.innerWidth - 0.5
+      const ny = e.clientY / window.innerHeight - 0.5
+      x.set(-nx * strength)
+      y.set(-ny * strength)
+      ry.set(nx * tilt * 2)
+      rx.set(-ny * tilt * 2)
     }
+    const onScroll = () => {
+      const el = wrapRef.current
+      if (!el) return
+      const r = el.getBoundingClientRect()
+      // -1..1 as the section crosses the viewport → deep layer slides slower than the page
+      const progress = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight
+      scrollY.set(progress * 46)
+    }
+    onScroll()
     window.addEventListener("mousemove", onMove)
-    return () => window.removeEventListener("mousemove", onMove)
-  }, [x, y, strength])
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => {
+      window.removeEventListener("mousemove", onMove)
+      window.removeEventListener("scroll", onScroll)
+    }
+  }, [x, y, rx, ry, scrollY, strength, tilt])
 
   const mask = "linear-gradient(to bottom, rgba(0,0,0,1) 45%, rgba(0,0,0,0.6) 75%, transparent 98%)"
   return (
-    <div aria-hidden style={{ position: "absolute", top: 0, left: 0, right: 0, height, overflow: "hidden", pointerEvents: "none" }}>
-      <motion.img src={src} alt=""
-        style={{
-          x, y,
-          position: "absolute", inset: 0,
-          width: "100%", height: "100%",
-          objectFit: "cover", objectPosition: focus,
-          scale: 1.07,
-          opacity,
-          maskImage: mask, WebkitMaskImage: mask,
-        }} />
+    <div ref={wrapRef} aria-hidden
+      style={{ position: "absolute", top: 0, left: 0, right: 0, height, overflow: "hidden", pointerEvents: "none", perspective: 900 }}>
+      <motion.div style={{ y: scrollY, position: "absolute", inset: 0 }}>
+        <motion.img src={src} alt=""
+          style={{
+            x, y,
+            rotateX: rx, rotateY: ry,
+            transformPerspective: 900,
+            position: "absolute", inset: 0,
+            width: "100%", height: "100%",
+            objectFit: "cover", objectPosition: focus,
+            scale: 1.14,
+            opacity,
+            maskImage: mask, WebkitMaskImage: mask,
+          }} />
+      </motion.div>
       {/* violet wash pulls the art toward the palette */}
       <div style={{
         position: "absolute", inset: 0,
@@ -815,8 +843,9 @@ function WorkSection() {
 
 function AboutSection() {
   return (
-    <section id="about" className="band section-pad">
-      <div style={{ maxWidth: 1160, margin: "0 auto" }}>
+    <section id="about" className="band section-pad" style={{ position: "relative", overflow: "hidden" }}>
+      <IllustrationBackdrop src={stargazeArt} opacity={0.42} focus="center 42%" strength={16} />
+      <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative" }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 450px), 1fr))", gap: "clamp(40px, 8vw, 80px)", alignItems: "center" }}>
           <RevealSection>
             <div className="eyebrow" style={{ marginBottom: 20 }}>About</div>
@@ -940,7 +969,7 @@ function ContactSection({
 }) {
   return (
     <section id="contact" className="band section-pad" style={{ position: "relative", overflow: "hidden" }}>
-      <IllustrationBackdrop src={summitArt} opacity={0.3} focus="center 35%" strength={14} />
+      <IllustrationBackdrop src={journeyArt} opacity={0.3} focus="center 60%" strength={14} />
       <div style={{ maxWidth: 900, margin: "0 auto", position: "relative" }}>
         <RevealSection>
           <SectionHeading eyebrow="Get in touch" sub={sub}>
