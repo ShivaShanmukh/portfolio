@@ -4,6 +4,7 @@ import { ExternalLink, Github, ArrowRight, Mail, MapPin, Phone, Gamepad2, Play, 
 import shivaImg from "./assets/shiva.png"
 import wormholeArt from "./assets/bg-wormhole.jpg"
 import campingArt from "./assets/bg-camping.png"
+import summitArt from "./assets/bg-summit.png"
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -938,8 +939,9 @@ function ContactSection({
   sub = "Available for forward deployed and AI engineering roles, plus select projects. Based in London, open to hybrid and remote.",
 }) {
   return (
-    <section id="contact" className="band section-pad">
-      <div style={{ maxWidth: 900, margin: "0 auto" }}>
+    <section id="contact" className="band section-pad" style={{ position: "relative", overflow: "hidden" }}>
+      <IllustrationBackdrop src={summitArt} opacity={0.3} focus="center 35%" strength={14} />
+      <div style={{ maxWidth: 900, margin: "0 auto", position: "relative" }}>
         <RevealSection>
           <SectionHeading eyebrow="Get in touch" sub={sub}>
             {headline}
