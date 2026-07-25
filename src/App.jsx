@@ -511,11 +511,11 @@ function SectionHeading({ eyebrow, children, sub }) {
   return (
     <div style={{ marginBottom: 64, textAlign: "center" }}>
       <div className="eyebrow" style={{ marginBottom: 16 }}>{eyebrow}</div>
-      <h2 className="font-display" style={{ fontSize: "clamp(36px, 5vw, 56px)", fontWeight: 400, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
+      <h2 className="font-display" style={{ fontSize: "clamp(40px, 5.6vw, 63px)", fontWeight: 400, letterSpacing: "-0.03em", lineHeight: 1.1 }}>
         {children}
       </h2>
       {sub && (
-        <p style={{ fontSize: 19, color: "var(--paper-dim)", maxWidth: 560, margin: "20px auto 0", lineHeight: 1.6 }}>
+        <p style={{ fontSize: 21.5, color: "var(--paper-dim)", maxWidth: 560, margin: "20px auto 0", lineHeight: 1.6 }}>
           {sub}
         </p>
       )}
@@ -536,20 +536,20 @@ function Nav({ page = "home" }) {
   return (
     <nav className="nav-global" style={{ background: scrolled ? "rgba(10,14,26,0.92)" : "rgba(10,14,26,0.7)" }}>
       <div className="nav-container" style={{ maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <a href="#/" className="font-display" style={{ fontSize: 18, letterSpacing: "-0.02em", color: "var(--paper)", textDecoration: "none" }}>
+        <a href="#/" className="font-display" style={{ fontSize: 20, letterSpacing: "-0.02em", color: "var(--paper)", textDecoration: "none" }}>
           Siva<span className="accent">.</span> I
         </a>
         <div style={{ display: "flex", gap: "clamp(16px, 3vw, 32px)", flexWrap: "wrap", justifyContent: "center" }}>
           {NAV_LINKS[page].map(({ label, href }) => (
             <a key={label} href={href}
-              style={{ color: "var(--paper-dim)", fontSize: 13, textDecoration: "none", letterSpacing: "0.02em", transition: "color 0.2s ease" }}
+              style={{ color: "var(--paper-dim)", fontSize: 14.5, textDecoration: "none", letterSpacing: "0.02em", transition: "color 0.2s ease" }}
               onMouseEnter={e => e.target.style.color = "var(--accent-bright)"}
               onMouseLeave={e => e.target.style.color = "var(--paper-dim)"}>
               {label}
             </a>
           ))}
         </div>
-        <a href="mailto:shivashanmukh2@gmail.com" className="btn-primary" style={{ fontSize: 12, padding: "7px 16px" }}>
+        <a href="mailto:shivashanmukh2@gmail.com" className="btn-primary" style={{ fontSize: 13.5, padding: "7px 16px" }}>
           Get in touch
         </a>
       </div>
@@ -580,14 +580,14 @@ function HeroSection() {
 
         <motion.h1 initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.1 }}
           className="font-display"
-          style={{ fontSize: "clamp(48px, 8vw, 92px)", fontWeight: 400, lineHeight: 1.04, letterSpacing: "-0.03em", marginBottom: 28 }}>
+          style={{ fontSize: "clamp(54px, 9vw, 103px)", fontWeight: 400, lineHeight: 1.04, letterSpacing: "-0.03em", marginBottom: 28 }}>
           Production AI,
           <br />
           <span className="accent-gradient-text">deployed in the field.</span>
         </motion.h1>
 
         <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.2 }}
-          style={{ fontSize: 20, color: "var(--paper-dim)", lineHeight: 1.55, marginBottom: 48, maxWidth: 620, margin: "0 auto 48px" }}>
+          style={{ fontSize: 22.5, color: "var(--paper-dim)", lineHeight: 1.55, marginBottom: 48, maxWidth: 620, margin: "0 auto 48px" }}>
           I embed with teams like the NHS and Midsummer Energy, find the real problem, and ship
           production AI end-to-end — RAG agents, LLM harnesses, agentic pipelines, and the
           full-stack products around them.
@@ -617,8 +617,8 @@ function HeroSection() {
             { n: "30+", label: "active SaaS users" },
           ].map(({ n, label }) => (
             <div key={label} style={{ textAlign: "center" }}>
-              <div className="font-display accent-gradient-text" style={{ fontSize: 30, fontWeight: 400 }}>{n}</div>
-              <div style={{ fontSize: 13, color: "var(--paper-faint)", marginTop: 4 }}>{label}</div>
+              <div className="font-display accent-gradient-text" style={{ fontSize: 33.5, fontWeight: 400 }}>{n}</div>
+              <div style={{ fontSize: 14.5, color: "var(--paper-faint)", marginTop: 4 }}>{label}</div>
             </div>
           ))}
         </motion.div>
@@ -683,8 +683,8 @@ function FlagshipCard({ project, index }) {
         {/* Header */}
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 20, flexWrap: "wrap", marginBottom: 28 }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 12, fontSize: 11 }}>{project.genre}</div>
-            <h3 className="font-display" style={{ fontSize: "clamp(30px, 4vw, 44px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+            <div className="eyebrow" style={{ marginBottom: 12, fontSize: 12.5 }}>{project.genre}</div>
+            <h3 className="font-display" style={{ fontSize: "clamp(34px, 4.5vw, 49px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
               {project.name}
             </h3>
           </div>
@@ -696,14 +696,14 @@ function FlagshipCard({ project, index }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 380px), 1fr))", gap: "clamp(28px, 4vw, 48px)", alignItems: "start" }}>
           {/* Left: narrative */}
           <div>
-            <p style={{ fontSize: 17, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 22 }}>
+            <p style={{ fontSize: 19, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 22 }}>
               {project.description}
             </p>
 
             <div className="hairline" style={{ margin: "22px 0" }} />
 
-            <div className="eyebrow" style={{ fontSize: 10.5, marginBottom: 12 }}>UX Research</div>
-            <p style={{ fontSize: 16, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 16 }}>
+            <div className="eyebrow" style={{ fontSize: 12, marginBottom: 12 }}>UX Research</div>
+            <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 16 }}>
               {project.research}
             </p>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 26 }}>
@@ -716,12 +716,12 @@ function FlagshipCard({ project, index }) {
 
             <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
               {project.github && (
-                <a href={project.github} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 13.5, padding: "8px 18px" }}>
+                <a href={project.github} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 15, padding: "8px 18px" }}>
                   <Github size={14} /> Code
                 </a>
               )}
               {project.miroLink && (
-                <a href={project.miroLink} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 13.5, padding: "8px 18px" }}>
+                <a href={project.miroLink} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 15, padding: "8px 18px" }}>
                   <ClipboardList size={14} /> Full research board
                 </a>
               )}
@@ -741,17 +741,17 @@ function CompactGameCard({ project, index }) {
     <RevealSection delay={index * 0.08}>
       <TiltCard style={{ height: "100%" }}>
       <div className="panel case-card" style={{ padding: "clamp(26px, 3vw, 38px)", height: "100%", display: "flex", flexDirection: "column" }}>
-        <div className="eyebrow" style={{ marginBottom: 12, fontSize: 11 }}>{project.genre}</div>
-        <h3 className="font-display" style={{ fontSize: 30, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 8, lineHeight: 1.15 }}>
+        <div className="eyebrow" style={{ marginBottom: 12, fontSize: 12.5 }}>{project.genre}</div>
+        <h3 className="font-display" style={{ fontSize: 33.5, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 8, lineHeight: 1.15 }}>
           {project.name}
         </h3>
-        <div className="award-badge" style={{ alignSelf: "flex-start", margin: "8px 0 18px", fontSize: 12, padding: "5px 13px" }}>
+        <div className="award-badge" style={{ alignSelf: "flex-start", margin: "8px 0 18px", fontSize: 13.5, padding: "5px 13px" }}>
           <Trophy size={12} /> {project.award}
         </div>
-        <p style={{ fontSize: 16, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 18 }}>
+        <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 18 }}>
           {project.description}
         </p>
-        <p style={{ fontSize: 15, color: "var(--paper-faint)", lineHeight: 1.6, marginBottom: 18 }}>
+        <p style={{ fontSize: 17, color: "var(--paper-faint)", lineHeight: 1.6, marginBottom: 18 }}>
           {project.research}
         </p>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
@@ -759,12 +759,12 @@ function CompactGameCard({ project, index }) {
         </div>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: "auto" }}>
           {project.play && (
-            <a href={project.play} target="_blank" rel="noreferrer" className="btn-primary" style={{ fontSize: 13.5, padding: "8px 18px" }}>
+            <a href={project.play} target="_blank" rel="noreferrer" className="btn-primary" style={{ fontSize: 15, padding: "8px 18px" }}>
               <Play size={14} /> Play on itch.io
             </a>
           )}
           {project.github && (
-            <a href={project.github} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 13.5, padding: "8px 18px" }}>
+            <a href={project.github} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 15, padding: "8px 18px" }}>
               <Github size={14} /> Code
             </a>
           )}
@@ -820,10 +820,10 @@ function GamingTeaser() {
                   <Gamepad2 size={13} style={{ display: "inline", marginRight: 8, verticalAlign: "-2px" }} />
                   Game Design & UX Research
                 </div>
-                <h3 className="font-display" style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.12, marginBottom: 14, color: "var(--paper)" }}>
+                <h3 className="font-display" style={{ fontSize: "clamp(31px, 3.9vw, 45px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.12, marginBottom: 14, color: "var(--paper)" }}>
                   Play the game. <span className="accent-gradient-text">Read the research.</span>
                 </h3>
-                <p style={{ fontSize: 17, color: "var(--paper-dim)", lineHeight: 1.65 }}>
+                <p style={{ fontSize: 19, color: "var(--paper-dim)", lineHeight: 1.65 }}>
                   Four research-backed games — an Innovate UK-selected VR world, a multiplayer pet game,
                   and inclusive titles for neurodivergent and SEND players — each with its full UX research trail.
                 </p>
@@ -860,8 +860,8 @@ function GalleryTile({ item }) {
         )}
       </div>
       <div>
-        <div style={{ fontSize: 14, fontWeight: 500, color: "var(--paper)" }}>{item.label}</div>
-        <div style={{ fontSize: 12.5, color: "var(--paper-faint)", marginTop: 2 }}>{item.sub}</div>
+        <div style={{ fontSize: 15.5, fontWeight: 500, color: "var(--paper)" }}>{item.label}</div>
+        <div style={{ fontSize: 14, color: "var(--paper-faint)", marginTop: 2 }}>{item.sub}</div>
       </div>
     </a>
   )
@@ -873,10 +873,10 @@ function AchievementCard({ achievement, index }) {
       <div className="panel case-card" style={{ padding: "clamp(28px, 4vw, 52px)", overflow: "hidden" }}>
         <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 20, flexWrap: "wrap", marginBottom: 8 }}>
           <div>
-            <div className="eyebrow" style={{ marginBottom: 12, fontSize: 11 }}>
+            <div className="eyebrow" style={{ marginBottom: 12, fontSize: 12.5 }}>
               {achievement.role} · {achievement.company} · {achievement.type}
             </div>
-            <h3 className="font-display" style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+            <h3 className="font-display" style={{ fontSize: "clamp(31px, 4.5vw, 45px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
               {achievement.company}
             </h3>
           </div>
@@ -885,19 +885,19 @@ function AchievementCard({ achievement, index }) {
           </div>
         </div>
 
-        <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24, fontSize: 13, color: "var(--paper-faint)" }}>
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24, fontSize: 14.5, color: "var(--paper-faint)" }}>
           <span>{achievement.period}</span>
           <span>·</span>
           <span>{achievement.location}</span>
         </div>
 
-        <p style={{ fontSize: 16, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 24, maxWidth: 760 }}>
+        <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 24, maxWidth: 760 }}>
           {achievement.description}
         </p>
 
         <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 10 }}>
           {achievement.highlights.map(h => (
-            <li key={h} style={{ display: "flex", gap: 10, fontSize: 14.5, color: "var(--paper-dim)", lineHeight: 1.6 }}>
+            <li key={h} style={{ display: "flex", gap: 10, fontSize: 16, color: "var(--paper-dim)", lineHeight: 1.6 }}>
               <Trophy size={15} style={{ flexShrink: 0, marginTop: 3, color: "var(--cyan)" }} />
               {h}
             </li>
@@ -907,12 +907,12 @@ function AchievementCard({ achievement, index }) {
         {achievement.press.length > 0 && (
           <>
             <div className="hairline" style={{ margin: "24px 0" }} />
-            <div className="eyebrow" style={{ fontSize: 10.5, marginBottom: 16 }}>Press & Recognition</div>
+            <div className="eyebrow" style={{ fontSize: 12, marginBottom: 16 }}>Press & Recognition</div>
             <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
               {achievement.press.map(p => (
                 <div key={p.label} style={{ display: "flex", gap: 10, alignItems: "baseline", flexWrap: "wrap" }}>
                   <span className="chip-accent">{p.label}</span>
-                  <span style={{ fontSize: 13.5, color: "var(--paper-faint)" }}>{p.detail} — {p.date}</span>
+                  <span style={{ fontSize: 15, color: "var(--paper-faint)" }}>{p.detail} — {p.date}</span>
                 </div>
               ))}
             </div>
@@ -967,10 +967,10 @@ function AchievementsTeaser() {
                   <Trophy size={13} style={{ display: "inline", marginRight: 8, verticalAlign: "-2px" }} />
                   Achievements & Recognition
                 </div>
-                <h3 className="font-display" style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.12, marginBottom: 14, color: "var(--paper)" }}>
+                <h3 className="font-display" style={{ fontSize: "clamp(31px, 3.9vw, 45px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.12, marginBottom: 14, color: "var(--paper)" }}>
                   From pitch deck <span className="accent-gradient-text">to press coverage.</span>
                 </h3>
-                <p style={{ fontSize: 17, color: "var(--paper-dim)", lineHeight: 1.65 }}>
+                <p style={{ fontSize: 19, color: "var(--paper-dim)", lineHeight: 1.65 }}>
                   Co-founded Bead Music, won Best Pitch at StartAP FEST, and landed press in Yo! Vizag and
                   The New Indian Express — the startup instincts that carry into every product I ship today.
                 </p>
@@ -995,21 +995,21 @@ function ProjectCard({ project, index }) {
       <div className="panel case-card" style={{ padding: "clamp(28px, 3vw, 44px)", height: "100%", display: "flex", flexDirection: "column" }}>
         {/* Metric */}
         <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 22 }}>
-          <span className="font-display accent-gradient-text" style={{ fontSize: 38, letterSpacing: "-0.02em" }}>
+          <span className="font-display accent-gradient-text" style={{ fontSize: 42.5, letterSpacing: "-0.02em" }}>
             {project.metric}
           </span>
-          <span style={{ fontSize: 13, color: "var(--paper-faint)" }}>
+          <span style={{ fontSize: 14.5, color: "var(--paper-faint)" }}>
             {project.metricLabel}
           </span>
         </div>
 
-        <h3 className="font-display" style={{ fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 8, lineHeight: 1.15 }}>
+        <h3 className="font-display" style={{ fontSize: 36, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 8, lineHeight: 1.15 }}>
           {project.name}
         </h3>
-        <p style={{ fontSize: 19, color: "var(--paper-dim)", marginBottom: 18, lineHeight: 1.4 }}>
+        <p style={{ fontSize: 21.5, color: "var(--paper-dim)", marginBottom: 18, lineHeight: 1.4 }}>
           {project.tagline}
         </p>
-        <p style={{ fontSize: 16, color: "var(--paper-faint)", lineHeight: 1.65, marginBottom: 26 }}>
+        <p style={{ fontSize: 18, color: "var(--paper-faint)", lineHeight: 1.65, marginBottom: 26 }}>
           {project.description}
         </p>
 
@@ -1019,22 +1019,22 @@ function ProjectCard({ project, index }) {
 
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: "auto" }}>
           {project.live && (
-            <a href={project.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ fontSize: 13.5, padding: "8px 18px" }}>
+            <a href={project.live} target="_blank" rel="noreferrer" className="btn-primary" style={{ fontSize: 15, padding: "8px 18px" }}>
               Live website <ExternalLink size={13} />
             </a>
           )}
           {project.github && (
-            <a href={project.github} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 13.5, padding: "8px 18px" }}>
+            <a href={project.github} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 15, padding: "8px 18px" }}>
               <Github size={13} /> Code
             </a>
           )}
           {project.figma && (
-            <a href={project.figma} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 13.5, padding: "8px 18px" }}>
+            <a href={project.figma} target="_blank" rel="noreferrer" className="btn-outline" style={{ fontSize: 15, padding: "8px 18px" }}>
               <ExternalLink size={13} /> Figma Design
             </a>
           )}
           {!project.live && !project.github && !project.figma && (
-            <span style={{ fontSize: 13, color: "var(--paper-faint)", padding: "8px 0" }}>
+            <span style={{ fontSize: 14.5, color: "var(--paper-faint)", padding: "8px 0" }}>
               Private deployment
             </span>
           )}
@@ -1075,17 +1075,17 @@ function AboutSection() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 450px), 1fr))", gap: "clamp(40px, 8vw, 80px)", alignItems: "center" }}>
           <RevealSection>
             <div className="eyebrow" style={{ marginBottom: 20 }}>About</div>
-            <h2 className="font-display" style={{ fontSize: "clamp(32px, 4vw, 48px)", fontWeight: 400, letterSpacing: "-0.03em", marginBottom: 28, lineHeight: 1.1 }}>
+            <h2 className="font-display" style={{ fontSize: "clamp(36px, 4.5vw, 54px)", fontWeight: 400, letterSpacing: "-0.03em", marginBottom: 28, lineHeight: 1.1 }}>
               Mechanical engineer dropout.<br />
               <span className="accent-gradient-text">Forward deployed. AI builder.</span>
             </h2>
-            <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
+            <p style={{ fontSize: 20, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
               I work forward deployed — embedding directly with teams like Cambridge University Hospitals and Midsummer Energy, translating messy real-world requirements into production AI systems, and staying until they're live and actually used.
             </p>
-            <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
+            <p style={{ fontSize: 20, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
               Before that: seven years at the intersection of design and technology — motion campaigns for PwC's C-suite clients, design systems for 150M+ users at BYJU'S, and AI deployments for 15 startups at Caarya. I taught myself to build the products I was designing.
             </p>
-            <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 40 }}>
+            <p style={{ fontSize: 20, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 40 }}>
               I hold a Master's degree in Game Development and Design from Kingston University London (Distinction, A+). My VR dissertation was selected for Innovate UK's Bright Ideas programme — that research-led approach carries into everything I deploy.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -1116,9 +1116,9 @@ function AboutSection() {
                 { role: "MA Game Dev & Design", company: "Kingston University", year: "A+ Distinction" },
               ].map(({ role, company, year }) => (
                 <div key={role} className="panel-raised" style={{ padding: "20px 20px" }}>
-                  <div className="font-mono" style={{ fontSize: 11, color: "var(--cyan)", marginBottom: 6, letterSpacing: "0.06em" }}>{year}</div>
-                  <div style={{ fontSize: 14, fontWeight: 500, marginBottom: 4 }}>{role}</div>
-                  <div style={{ fontSize: 13, color: "var(--paper-faint)" }}>{company}</div>
+                  <div className="font-mono" style={{ fontSize: 12.5, color: "var(--cyan)", marginBottom: 6, letterSpacing: "0.06em" }}>{year}</div>
+                  <div style={{ fontSize: 15.5, fontWeight: 500, marginBottom: 4 }}>{role}</div>
+                  <div style={{ fontSize: 14.5, color: "var(--paper-faint)" }}>{company}</div>
                 </div>
               ))}
             </div>
@@ -1171,7 +1171,7 @@ function SkillsSection() {
             <RevealSection key={label} delay={i * 0.06}>
               <TiltCard max={4} style={{ height: "100%" }}>
               <div className="panel case-card" style={{ padding: "28px 28px", height: "100%" }}>
-                <div className="eyebrow" style={{ fontSize: 11, marginBottom: 16 }}>
+                <div className="eyebrow" style={{ fontSize: 12.5, marginBottom: 16 }}>
                   {label}
                 </div>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -1214,17 +1214,17 @@ function ContactSection({
               <div key={label} className="panel" style={{ padding: "24px 24px", display: "flex", alignItems: "center", gap: 16 }}>
                 <div style={{ color: "var(--cyan)", flexShrink: 0 }}>{icon}</div>
                 <div style={{ minWidth: 0 }}>
-                  <div style={{ fontSize: 12, color: "var(--paper-faint)", marginBottom: 4 }}>{label}</div>
+                  <div style={{ fontSize: 13.5, color: "var(--paper-faint)", marginBottom: 4 }}>{label}</div>
                   {href ? (
                     <a href={href} target={href.startsWith("http") ? "_blank" : undefined}
                       rel="noreferrer"
-                      style={{ fontSize: 15, color: "var(--paper)", textDecoration: "none", display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", transition: "color 0.2s ease" }}
+                      style={{ fontSize: 17, color: "var(--paper)", textDecoration: "none", display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", transition: "color 0.2s ease" }}
                       onMouseEnter={e => e.target.style.color = "var(--accent-bright)"}
                       onMouseLeave={e => e.target.style.color = "var(--paper)"}>
                       {value}
                     </a>
                   ) : (
-                    <span style={{ fontSize: 15, display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{value}</span>
+                    <span style={{ fontSize: 17, display: "block", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{value}</span>
                   )}
                 </div>
               </div>
@@ -1245,7 +1245,7 @@ function ContactSection({
       </div>
 
       <footer style={{ textAlign: "center", marginTop: 90, paddingTop: 40, borderTop: "1px solid var(--line)" }}>
-        <p style={{ fontSize: 12, color: "var(--paper-faint)", padding: "0 20px" }}>
+        <p style={{ fontSize: 13.5, color: "var(--paper-faint)", padding: "0 20px" }}>
           © 2026 Siva Iyallasomayajula. Designed & built with React, Tailwind CSS, and a lot of playtesting.
         </p>
       </footer>
