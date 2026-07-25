@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react"
 import { motion, useInView, AnimatePresence, useSpring } from "framer-motion"
-import { ExternalLink, Github, ArrowRight, Mail, MapPin, Phone, Gamepad2, Play, ClipboardList, Trophy } from "lucide-react"
+import { ExternalLink, Github, ArrowRight, Mail, MapPin, Phone, Gamepad2, Play, ClipboardList, Trophy, Award, Newspaper } from "lucide-react"
 import shivaImg from "./assets/shiva.png"
 import wormholeArt from "./assets/bg-wormhole.jpg"
 import campingArt from "./assets/bg-camping.png"
@@ -183,15 +183,50 @@ const PROJECTS = [
   },
 ]
 
+const ACHIEVEMENTS = [
+  {
+    id: "bead-music",
+    role: "Co-Founder",
+    company: "Bead Music",
+    type: "Full-time",
+    period: "Jan 2015 – Apr 2016 · 1 yr 4 mos",
+    location: "Andhra Pradesh, India",
+    award: "Best Pitch Award · StartAP FEST",
+    description:
+      "An indie music discovery platform — pitched to press as \"an Instagram for music\" — connecting independent artists and bands with venues, event managers, and listeners across Vizag. Started from a student side-project with a dusty guitar and three co-founders, it grew into a funded startup with a team of eight, running live sessions with cafés and venues across the city.",
+    highlights: [
+      "Built and launched an indie music platform that supported 50+ emerging artists globally",
+      "Won the Best Pitch Award at StartAP FEST, securing ₹50,000 in initial funding and press features",
+      "Led creative strategy and brand positioning, growing the platform's organic reach by 60% in the first year",
+    ],
+    press: [
+      { label: "Yo! Vizag", detail: "\"Endeavours\" feature on Bead Music's founding story and product vision", date: "Mar 2016" },
+      { label: "The New Indian Express — Expresso", detail: "\"Connect the Beads\" — coverage of the StartAP FEST win and the Bead Connect concept", date: "Mar 2016" },
+    ],
+    gallery: [
+      { key: "bead-logo", label: "Bead Music", sub: "Brand mark" },
+      { key: "salt-logo", label: "SALT — Fest of the East", sub: "Partner event" },
+      { key: "startap-photo", label: "StartAP FEST", sub: "Best Pitch Award, ₹50,000" },
+      { key: "yovizag-press", label: "Yo! Vizag", sub: "Magazine feature, Mar 2016" },
+      { key: "expresso-press", label: "New Indian Express", sub: "\"Connect the Beads\", Mar 2016" },
+    ],
+  },
+]
+
 const NAV_LINKS = {
   home: [
     { label: "Work", href: "#work" },
     { label: "Gaming", href: "#/gaming" },
+    { label: "Achievements", href: "#/achievements" },
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
     { label: "Contact", href: "#contact" },
   ],
   gaming: [
+    { label: "← Back home", href: "#/" },
+    { label: "Contact", href: "#contact" },
+  ],
+  achievements: [
     { label: "← Back home", href: "#/" },
     { label: "Contact", href: "#contact" },
   ],
@@ -776,6 +811,142 @@ function GamingTeaser() {
   )
 }
 
+// ─── ACHIEVEMENTS ─────────────────────────────────────────────────────────────
+
+function GalleryTile({ item }) {
+  const isPress = item.key.includes("press")
+  return (
+    <div className="panel-raised" style={{ padding: 18, display: "flex", flexDirection: "column", gap: 10, height: "100%" }}>
+      <div style={{
+        aspectRatio: "16 / 10", borderRadius: 10,
+        background: "linear-gradient(135deg, rgba(139,92,246,0.14), rgba(34,211,238,0.08))",
+        border: "1px solid var(--line)",
+        display: "flex", alignItems: "center", justifyContent: "center", color: "var(--paper-faint)",
+      }}>
+        {isPress ? <Newspaper size={22} /> : <Award size={22} />}
+      </div>
+      <div>
+        <div style={{ fontSize: 14, fontWeight: 500, color: "var(--paper)" }}>{item.label}</div>
+        <div style={{ fontSize: 12.5, color: "var(--paper-faint)", marginTop: 2 }}>{item.sub}</div>
+      </div>
+    </div>
+  )
+}
+
+function AchievementCard({ achievement, index }) {
+  return (
+    <RevealSection delay={index * 0.08}>
+      <div className="panel case-card" style={{ padding: "clamp(28px, 4vw, 52px)", overflow: "hidden" }}>
+        <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: 20, flexWrap: "wrap", marginBottom: 8 }}>
+          <div>
+            <div className="eyebrow" style={{ marginBottom: 12, fontSize: 11 }}>
+              {achievement.role} · {achievement.company} · {achievement.type}
+            </div>
+            <h3 className="font-display" style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.1 }}>
+              {achievement.company}
+            </h3>
+          </div>
+          <div className="award-badge">
+            <Trophy size={14} /> {achievement.award}
+          </div>
+        </div>
+
+        <div style={{ display: "flex", gap: 16, flexWrap: "wrap", marginBottom: 24, fontSize: 13, color: "var(--paper-faint)" }}>
+          <span>{achievement.period}</span>
+          <span>·</span>
+          <span>{achievement.location}</span>
+        </div>
+
+        <p style={{ fontSize: 16, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 24, maxWidth: 760 }}>
+          {achievement.description}
+        </p>
+
+        <ul style={{ listStyle: "none", padding: 0, margin: "0 0 28px", display: "flex", flexDirection: "column", gap: 10 }}>
+          {achievement.highlights.map(h => (
+            <li key={h} style={{ display: "flex", gap: 10, fontSize: 14.5, color: "var(--paper-dim)", lineHeight: 1.6 }}>
+              <Trophy size={15} style={{ flexShrink: 0, marginTop: 3, color: "var(--cyan)" }} />
+              {h}
+            </li>
+          ))}
+        </ul>
+
+        <div className="hairline" style={{ margin: "24px 0" }} />
+
+        <div className="eyebrow" style={{ fontSize: 10.5, marginBottom: 16 }}>Press & Recognition</div>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
+          {achievement.press.map(p => (
+            <div key={p.label} style={{ display: "flex", gap: 10, alignItems: "baseline", flexWrap: "wrap" }}>
+              <span className="chip-accent">{p.label}</span>
+              <span style={{ fontSize: 13.5, color: "var(--paper-faint)" }}>{p.detail} — {p.date}</span>
+            </div>
+          ))}
+        </div>
+
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 14 }}>
+          {achievement.gallery.map(item => <GalleryTile key={item.key} item={item} />)}
+        </div>
+      </div>
+    </RevealSection>
+  )
+}
+
+function AchievementsSection() {
+  return (
+    <section id="achievements" className="band section-pad" style={{ paddingTop: 150, position: "relative", overflow: "hidden" }}>
+      <div style={{ maxWidth: 1160, margin: "0 auto", position: "relative" }}>
+        <RevealSection>
+          <SectionHeading
+            eyebrow="Achievements & Recognition"
+            sub="Before the AI engineering — a startup, a stage, and a press cycle. What I learned building and pitching Bead Music still shows up in how I ship.">
+            From pitch deck<br /><span className="accent-gradient-text">to press coverage.</span>
+          </SectionHeading>
+        </RevealSection>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
+          {ACHIEVEMENTS.map((a, i) => <AchievementCard key={a.id} achievement={a} index={i} />)}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function AchievementsTeaser() {
+  return (
+    <section className="band-deep" style={{ padding: "0 24px 110px" }}>
+      <div style={{ maxWidth: 1160, margin: "0 auto" }}>
+        <RevealSection>
+          <a href="#/achievements" style={{ textDecoration: "none", display: "block" }}>
+            <div className="panel case-card" style={{
+              padding: "clamp(32px, 4vw, 52px)",
+              display: "flex", alignItems: "center", justifyContent: "space-between",
+              gap: 28, flexWrap: "wrap",
+              borderColor: "var(--line-accent)",
+              background: "linear-gradient(120deg, var(--surface) 55%, rgba(139,92,246,0.1), rgba(34,211,238,0.06))",
+            }}>
+              <div style={{ maxWidth: 640 }}>
+                <div className="eyebrow" style={{ marginBottom: 14 }}>
+                  <Trophy size={13} style={{ display: "inline", marginRight: 8, verticalAlign: "-2px" }} />
+                  Achievements & Recognition
+                </div>
+                <h3 className="font-display" style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.12, marginBottom: 14, color: "var(--paper)" }}>
+                  From pitch deck <span className="accent-gradient-text">to press coverage.</span>
+                </h3>
+                <p style={{ fontSize: 17, color: "var(--paper-dim)", lineHeight: 1.65 }}>
+                  Co-founded Bead Music, won Best Pitch at StartAP FEST, and landed press in Yo! Vizag and
+                  The New Indian Express — the startup instincts that carry into every product I ship today.
+                </p>
+              </div>
+              <span className="btn-primary" style={{ flexShrink: 0 }}>
+                See the full story <ArrowRight size={15} />
+              </span>
+            </div>
+          </a>
+        </RevealSection>
+      </div>
+    </section>
+  )
+}
+
 // ─── WORK ─────────────────────────────────────────────────────────────────────
 
 function ProjectCard({ project, index }) {
@@ -1052,6 +1223,7 @@ function HomePage() {
       <HeroSection />
       <WorkSection />
       <GamingTeaser />
+      <AchievementsTeaser />
       <AboutSection />
       <SkillsSection />
       <ContactSection />
@@ -1072,14 +1244,34 @@ function GamingPage() {
   )
 }
 
+function AchievementsPage() {
+  return (
+    <div>
+      <Nav page="achievements" />
+      <AchievementsSection />
+      <ContactSection
+        headline={<>Let's build something<br /><span className="accent-gradient-text">worth the press.</span></>}
+        sub="Available for forward deployed and AI engineering roles, plus select projects. Based in London, open to hybrid and remote."
+      />
+    </div>
+  )
+}
+
 export default function App() {
-  const [route, setRoute] = useState(() => (window.location.hash.startsWith("#/gaming") ? "gaming" : "home"))
+  const getRoute = () => {
+    const hash = window.location.hash
+    if (hash.startsWith("#/gaming")) return "gaming"
+    if (hash.startsWith("#/achievements")) return "achievements"
+    return "home"
+  }
+  const [route, setRoute] = useState(getRoute)
 
   useEffect(() => {
     const handler = () => {
       const hash = window.location.hash
       // Only "#/..." hashes switch pages; plain anchors (#work, #contact) stay on the current page
       if (hash.startsWith("#/gaming")) setRoute("gaming")
+      else if (hash.startsWith("#/achievements")) setRoute("achievements")
       else if (hash === "" || hash === "#/") setRoute("home")
     }
     window.addEventListener("hashchange", handler)
@@ -1088,7 +1280,7 @@ export default function App() {
 
   useEffect(() => {
     // Page switches land at the top; in-page anchors (#work, #contact) keep native scroll
-    if (window.location.hash === "" || window.location.hash === "#/" || window.location.hash.startsWith("#/gaming")) {
+    if (window.location.hash === "" || window.location.hash === "#/" || window.location.hash.startsWith("#/gaming") || window.location.hash.startsWith("#/achievements")) {
       window.scrollTo(0, 0)
     }
   }, [route])
@@ -1096,7 +1288,7 @@ export default function App() {
   return (
     <>
       <CursorGlow />
-      {route === "gaming" ? <GamingPage /> : <HomePage />}
+      {route === "gaming" ? <GamingPage /> : route === "achievements" ? <AchievementsPage /> : <HomePage />}
     </>
   )
 }
