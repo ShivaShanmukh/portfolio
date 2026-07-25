@@ -45,6 +45,22 @@ const GAME_PROJECTS = [
     flagship: true,
   },
   {
+    id: "what-time-is-it",
+    name: "What Time Is It",
+    genre: "Narrative Puzzle · Time Mechanics",
+    engine: ["Unity", "C#", "Time Mechanics"],
+    award: "Kingston University project",
+    description:
+      "A narrative-driven puzzle game built around time manipulation — players rewind, pause, and fast-forward the world itself to unravel a mystery, with every puzzle grounded in how the time mechanic reshapes cause and effect. Built solo in Unity and C# at Kingston University.",
+    research:
+      "The full UX research trail lives on the Miro board — concept development and mechanic prototyping through playtesting rounds that shaped how legible and fair the time-manipulation puzzles felt to players.",
+    researchTags: ["Playtesting", "Mechanic Prototyping", "Narrative Design", "Puzzle Design"],
+    youtube: "K-G-jJAKSJ0",
+    miro: "https://miro.com/app/live-embed/uXjVLVYZl6I=/?embedMode=view_only_without_ui&autoplay=true&share_link_id=373769167784",
+    miroLink: "https://miro.com/app/board/uXjVLVYZl6I=/?share_link_id=373769167784",
+    flagship: true,
+  },
+  {
     id: "signal-engineer",
     name: "Signal Engineer",
     genre: "Narrative Puzzle · Inclusive Design",
@@ -436,7 +452,7 @@ function SectionHeading({ eyebrow, children, sub }) {
         {children}
       </h2>
       {sub && (
-        <p style={{ fontSize: 18, color: "var(--paper-dim)", maxWidth: 560, margin: "20px auto 0", lineHeight: 1.6 }}>
+        <p style={{ fontSize: 19, color: "var(--paper-dim)", maxWidth: 560, margin: "20px auto 0", lineHeight: 1.6 }}>
           {sub}
         </p>
       )}
@@ -617,14 +633,14 @@ function FlagshipCard({ project, index }) {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 380px), 1fr))", gap: "clamp(28px, 4vw, 48px)", alignItems: "start" }}>
           {/* Left: narrative */}
           <div>
-            <p style={{ fontSize: 15.5, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 22 }}>
+            <p style={{ fontSize: 17, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 22 }}>
               {project.description}
             </p>
 
             <div className="hairline" style={{ margin: "22px 0" }} />
 
             <div className="eyebrow" style={{ fontSize: 10.5, marginBottom: 12 }}>UX Research</div>
-            <p style={{ fontSize: 14.5, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 16 }}>
+            <p style={{ fontSize: 16, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 16 }}>
               {project.research}
             </p>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 26 }}>
@@ -669,10 +685,10 @@ function CompactGameCard({ project, index }) {
         <div className="award-badge" style={{ alignSelf: "flex-start", margin: "8px 0 18px", fontSize: 12, padding: "5px 13px" }}>
           <Trophy size={12} /> {project.award}
         </div>
-        <p style={{ fontSize: 14.5, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 18 }}>
+        <p style={{ fontSize: 16, color: "var(--paper-dim)", lineHeight: 1.65, marginBottom: 18 }}>
           {project.description}
         </p>
-        <p style={{ fontSize: 13.5, color: "var(--paper-faint)", lineHeight: 1.6, marginBottom: 18 }}>
+        <p style={{ fontSize: 15, color: "var(--paper-faint)", lineHeight: 1.6, marginBottom: 18 }}>
           {project.research}
         </p>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 24 }}>
@@ -744,7 +760,7 @@ function GamingTeaser() {
                 <h3 className="font-display" style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 400, letterSpacing: "-0.02em", lineHeight: 1.12, marginBottom: 14, color: "var(--paper)" }}>
                   Play the game. <span className="accent-gradient-text">Read the research.</span>
                 </h3>
-                <p style={{ fontSize: 15.5, color: "var(--paper-dim)", lineHeight: 1.65 }}>
+                <p style={{ fontSize: 17, color: "var(--paper-dim)", lineHeight: 1.65 }}>
                   Four research-backed games — an Innovate UK-selected VR world, a multiplayer pet game,
                   and inclusive titles for neurodivergent and SEND players — each with its full UX research trail.
                 </p>
@@ -780,10 +796,10 @@ function ProjectCard({ project, index }) {
         <h3 className="font-display" style={{ fontSize: 32, fontWeight: 400, letterSpacing: "-0.02em", marginBottom: 8, lineHeight: 1.15 }}>
           {project.name}
         </h3>
-        <p style={{ fontSize: 18, color: "var(--paper-dim)", marginBottom: 18, lineHeight: 1.4 }}>
+        <p style={{ fontSize: 19, color: "var(--paper-dim)", marginBottom: 18, lineHeight: 1.4 }}>
           {project.tagline}
         </p>
-        <p style={{ fontSize: 14.5, color: "var(--paper-faint)", lineHeight: 1.65, marginBottom: 26 }}>
+        <p style={{ fontSize: 16, color: "var(--paper-faint)", lineHeight: 1.65, marginBottom: 26 }}>
           {project.description}
         </p>
 
@@ -853,13 +869,13 @@ function AboutSection() {
               Mechanical engineer dropout.<br />
               <span className="accent-gradient-text">Forward deployed. AI builder.</span>
             </h2>
-            <p style={{ fontSize: 16.5, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
+            <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
               I work forward deployed — embedding directly with teams like Cambridge University Hospitals and Midsummer Energy, translating messy real-world requirements into production AI systems, and staying until they're live and actually used.
             </p>
-            <p style={{ fontSize: 16.5, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
+            <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
               Before that: seven years at the intersection of design and technology — motion campaigns for PwC's C-suite clients, design systems for 150M+ users at BYJU'S, and AI deployments for 15 startups at Caarya. I taught myself to build the products I was designing.
             </p>
-            <p style={{ fontSize: 16.5, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 40 }}>
+            <p style={{ fontSize: 18, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 40 }}>
               I hold a Master's degree in Game Development and Design from Kingston University London (Distinction, A+). My VR dissertation was selected for Innovate UK's Bright Ideas programme — that research-led approach carries into everything I deploy.
             </p>
             <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
@@ -887,7 +903,7 @@ function AboutSection() {
                 { role: "AI Technical Lead", company: "Caarya", year: "2024" },
                 { role: "Design Associate", company: "PwC", year: "2022–24" },
                 { role: "UI/UX Designer", company: "BYJU'S", year: "2021–22" },
-                { role: "MSc Game Dev & Design", company: "Kingston University", year: "A+ Distinction" },
+                { role: "MA Game Dev & Design", company: "Kingston University", year: "A+ Distinction" },
               ].map(({ role, company, year }) => (
                 <div key={role} className="panel-raised" style={{ padding: "20px 20px" }}>
                   <div className="font-mono" style={{ fontSize: 11, color: "var(--cyan)", marginBottom: 6, letterSpacing: "0.06em" }}>{year}</div>
