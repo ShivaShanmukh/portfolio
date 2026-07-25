@@ -6,6 +6,11 @@ import wormholeArt from "./assets/bg-wormhole.jpg"
 import campingArt from "./assets/bg-camping.png"
 import journeyArt from "./assets/bg-journey.png"
 import stargazeArt from "./assets/bg-stargaze.png"
+import beadMusicLogo from "./assets/achievements/bead-music-logo.png"
+import saltFestLogo from "./assets/achievements/salt-fest-logo.jpg"
+import startapAwardPhoto from "./assets/achievements/startap-award-photo.jpg"
+import yoVizagFeature from "./assets/achievements/yovizag-feature.jpg"
+import indianExpressFeature from "./assets/achievements/indian-express-feature.jpg"
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -204,11 +209,11 @@ const ACHIEVEMENTS = [
       { label: "The New Indian Express — Expresso", detail: "\"Connect the Beads\" — coverage of the StartAP FEST win and the Bead Connect concept", date: "Mar 2016" },
     ],
     gallery: [
-      { key: "bead-logo", label: "Bead Music", sub: "Brand mark" },
-      { key: "salt-logo", label: "SALT — Fest of the East", sub: "Partner event" },
-      { key: "startap-photo", label: "StartAP FEST", sub: "Best Pitch Award, ₹50,000" },
-      { key: "yovizag-press", label: "Yo! Vizag", sub: "Magazine feature, Mar 2016" },
-      { key: "expresso-press", label: "New Indian Express", sub: "\"Connect the Beads\", Mar 2016" },
+      { key: "bead-logo", label: "Bead Music", sub: "Brand mark", img: beadMusicLogo, fit: "contain", bg: "#000" },
+      { key: "salt-logo", label: "SALT — Fest of the East", sub: "Partner event", img: saltFestLogo, fit: "contain", bg: "#fff" },
+      { key: "startap-photo", label: "StartAP FEST", sub: "Best Pitch Award, ₹50,000", img: startapAwardPhoto, fit: "cover" },
+      { key: "yovizag-press", label: "Yo! Vizag", sub: "Magazine feature, Mar 2016", img: yoVizagFeature, fit: "cover" },
+      { key: "expresso-press", label: "New Indian Express", sub: "\"Connect the Beads\", Mar 2016", img: indianExpressFeature, fit: "cover" },
     ],
   },
 ]
@@ -816,20 +821,26 @@ function GamingTeaser() {
 function GalleryTile({ item }) {
   const isPress = item.key.includes("press")
   return (
-    <div className="panel-raised" style={{ padding: 18, display: "flex", flexDirection: "column", gap: 10, height: "100%" }}>
+    <a href={item.img} target="_blank" rel="noreferrer" className="panel-raised"
+      style={{ padding: 18, display: "flex", flexDirection: "column", gap: 10, height: "100%", textDecoration: "none" }}>
       <div style={{
-        aspectRatio: "16 / 10", borderRadius: 10,
-        background: "linear-gradient(135deg, rgba(139,92,246,0.14), rgba(34,211,238,0.08))",
+        aspectRatio: "16 / 10", borderRadius: 10, overflow: "hidden",
+        background: item.bg || "linear-gradient(135deg, rgba(139,92,246,0.14), rgba(34,211,238,0.08))",
         border: "1px solid var(--line)",
         display: "flex", alignItems: "center", justifyContent: "center", color: "var(--paper-faint)",
       }}>
-        {isPress ? <Newspaper size={22} /> : <Award size={22} />}
+        {item.img ? (
+          <img src={item.img} alt={item.label}
+            style={{ width: "100%", height: "100%", objectFit: item.fit || "cover", objectPosition: "top" }} />
+        ) : (
+          isPress ? <Newspaper size={22} /> : <Award size={22} />
+        )}
       </div>
       <div>
         <div style={{ fontSize: 14, fontWeight: 500, color: "var(--paper)" }}>{item.label}</div>
         <div style={{ fontSize: 12.5, color: "var(--paper-faint)", marginTop: 2 }}>{item.sub}</div>
       </div>
-    </div>
+    </a>
   )
 }
 
