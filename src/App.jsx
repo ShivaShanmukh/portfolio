@@ -11,6 +11,8 @@ import saltFestLogo from "./assets/achievements/salt-fest-logo.jpg"
 import startapAwardPhoto from "./assets/achievements/startap-award-photo.jpg"
 import yoVizagFeature from "./assets/achievements/yovizag-feature.jpg"
 import indianExpressFeature from "./assets/achievements/indian-express-feature.jpg"
+import madCertTeacher from "./assets/achievements/New Doc 2020-02-29 15.44.35_1.jpg"
+import madCertVolunteer from "./assets/achievements/New Doc 2020-02-29 15.44.35_2.jpg"
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -214,6 +216,27 @@ const ACHIEVEMENTS = [
       { key: "startap-photo", label: "StartAP FEST", sub: "Best Pitch Award, ₹50,000", img: startapAwardPhoto, fit: "cover" },
       { key: "yovizag-press", label: "Yo! Vizag", sub: "Magazine feature, Mar 2016", img: yoVizagFeature, fit: "cover" },
       { key: "expresso-press", label: "New Indian Express", sub: "\"Connect the Beads\", Mar 2016", img: indianExpressFeature, fit: "cover" },
+    ],
+  },
+  {
+    id: "make-a-difference",
+    role: "Teacher",
+    company: "Make A Difference",
+    type: "Volunteer",
+    period: "Feb 2013 – Dec 2014 · 1 yr 11 mos",
+    location: "Visakhapatnam, India",
+    award: "Best Teacher Award · 2 Consecutive Years",
+    description:
+      "Volunteered as a teacher with Make A Difference, a nonprofit empowering underprivileged children across India, through the Vizag chapter. Spent two years helping kids in shelter homes unlock their potential in the classroom, earning the Best Teacher Award in recognition of that impact in both years.",
+    highlights: [
+      "Awarded the Best Teacher Award for two consecutive years (2013–14 and 2014–15)",
+      "Taught underprivileged children as part of MAD's Vizag chapter, supporting its mission to give every child the opportunity to learn",
+      "Took on additional responsibility as a Discover Volunteer and CFR Volunteer during the 2014–15 chapter year",
+    ],
+    press: [],
+    gallery: [
+      { key: "mad-cert-teacher", label: "Make A Difference", sub: "Certificate of Appreciation — Teacher, Vizag Chapter, 2013–14", img: madCertTeacher, fit: "cover" },
+      { key: "mad-cert-volunteer", label: "Make A Difference", sub: "Certificate of Appreciation — Vizag Chapter, 2014–15", img: madCertVolunteer, fit: "cover" },
     ],
   },
 ]
@@ -881,17 +904,22 @@ function AchievementCard({ achievement, index }) {
           ))}
         </ul>
 
-        <div className="hairline" style={{ margin: "24px 0" }} />
-
-        <div className="eyebrow" style={{ fontSize: 10.5, marginBottom: 16 }}>Press & Recognition</div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
-          {achievement.press.map(p => (
-            <div key={p.label} style={{ display: "flex", gap: 10, alignItems: "baseline", flexWrap: "wrap" }}>
-              <span className="chip-accent">{p.label}</span>
-              <span style={{ fontSize: 13.5, color: "var(--paper-faint)" }}>{p.detail} — {p.date}</span>
+        {achievement.press.length > 0 && (
+          <>
+            <div className="hairline" style={{ margin: "24px 0" }} />
+            <div className="eyebrow" style={{ fontSize: 10.5, marginBottom: 16 }}>Press & Recognition</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, marginBottom: 28 }}>
+              {achievement.press.map(p => (
+                <div key={p.label} style={{ display: "flex", gap: 10, alignItems: "baseline", flexWrap: "wrap" }}>
+                  <span className="chip-accent">{p.label}</span>
+                  <span style={{ fontSize: 13.5, color: "var(--paper-faint)" }}>{p.detail} — {p.date}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
+
+        <div className="hairline" style={{ margin: "24px 0" }} />
 
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 14 }}>
           {achievement.gallery.map(item => <GalleryTile key={item.key} item={item} />)}
