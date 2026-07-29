@@ -1076,8 +1076,8 @@ function AboutSection() {
           <RevealSection>
             <div className="eyebrow" style={{ marginBottom: 20 }}>About</div>
             <h2 className="font-display" style={{ fontSize: "clamp(36px, 4.5vw, 54px)", fontWeight: 400, letterSpacing: "-0.03em", marginBottom: 28, lineHeight: 1.1 }}>
-              Mechanical engineer dropout.<br />
-              <span className="accent-gradient-text">Forward deployed. AI builder.</span>
+              Product designer turned<br />
+              <span className="accent-gradient-text">forward deployed. AI engineer.</span>
             </h2>
             <p style={{ fontSize: 20, color: "var(--paper-dim)", lineHeight: 1.7, marginBottom: 20 }}>
               I work forward deployed — embedding directly with teams like Cambridge University Hospitals and Midsummer Energy, translating messy real-world requirements into production AI systems, and staying until they're live and actually used.
